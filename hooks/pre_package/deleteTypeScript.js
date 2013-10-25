@@ -1,3 +1,4 @@
+#!/usr/bin/node
 /*
  * Remove all .ts files from the platforms directory. Which are copied here by cordova prepare.
  * Copy this file in the .cordova/hooks/pre_package for Windows Phone or the project file will be generated with the content tags for the typescript files.

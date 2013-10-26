@@ -5,10 +5,10 @@
  * Doesnt work with cordova 3.1, because it doesn't have the pre_package hook.
  */
 
-var fs = require('fs');
-var path = require('path');
-var cordovaUtil = require('cordova/src/util');
-var cordovaPlatforms = require('cordova/platforms');
+var fs = require('fs'),
+    path = require('path'),
+    cordovaUtil = require('cordova/src/util'),
+    cordovaPlatforms = require('cordova/platforms');
 
 var walk = function(dir, extensions) {
     var results = [];

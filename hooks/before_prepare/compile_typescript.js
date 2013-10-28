@@ -1,4 +1,4 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 /*
  * Compile TypeScript files in the www directory.
  * Copy this file in the .cordova/hooks/before_prepare so compiling is done before copying the files.

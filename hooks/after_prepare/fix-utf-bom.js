@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var fs = require('fs'),
     path = require('path');
 
@@ -29,6 +31,6 @@ function writeFilesWithBom(directory) {
     }
 }
 
-if (fs.existsSync('platforms/windows8')) {
-    writeFilesWithBom(path.resolve('platforms/windows8'));
+if (fs.existsSync('platforms/windows8/www')) {
+    writeFilesWithBom(path.resolve('platforms/windows8/www'));
 }

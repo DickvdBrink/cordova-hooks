@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+/* 
+ * Copy index.html to the windows8 merges folder and append the WinJS script tags to it. 
+ * Copy this file in the .cordova/hooks/before_prepare so the index.html is created before copying the files. 
+ */ 
+
 var fs = require('fs'),
     path = require('path'),
     shelljs = require('shelljs'),

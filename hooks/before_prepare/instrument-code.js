@@ -2,6 +2,8 @@
 
 /*
  * Instrument the JavaScript code with istanbul for code coverage testing
+ * Note: This changes the code directly in www, so you might want to change this to the platform www folder.
+ * In combination with for example TypeScript it doesn't really matter though, because the js is generated.
  */
 
 var fs              = require('fs'),

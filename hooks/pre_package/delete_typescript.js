@@ -7,8 +7,8 @@
 
 var fs = require('fs'),
     path = require('path'),
-    cordovaUtil = require('cordova/src/util'),
-    cordovaPlatforms = require('cordova/platforms');
+    cordovaLib = require('cordova/node_modules/cordova-lib'),
+    cordovaPlatforms = cordovaLib.cordova_platforms;
 
 var walk = function(dir, extensions) {
     var results = [];
@@ -29,11 +29,16 @@ var walk = function(dir, extensions) {
     return results;
 }
 
-var platforms = cordovaUtil.listPlatforms('.');
+var platforms = process.env.CORDOVA_PLATFORMS.split(",");
 
 platforms.forEach(function(platform) {
     if (cordovaPlatforms[platform]) {
-        var projectPath = path.resolve(path.join('platforms', platform));
+        var projectPath = null;
+        if(cordovaPlatforms[platform].subdirectory) {
+            projectPath = path.resolve(path.join('platforms', cordovaPlatforms[platform].subdirectory));
+        } else {
+            projectPath = path.resolve(path.join('platforms', platform));
+        }
         var parser = new cordovaPlatforms[platform].parser(projectPath);
         var filesToRemove = walk(parser.www_dir(), ['ts']);
         filesToRemove.forEach(function(file) {

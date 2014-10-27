@@ -39,7 +39,13 @@ platforms.forEach(function(platform) {
         return;
     }
 
-    var platformPath = path.join(projectRoot, "platforms", platform);
+    var platformPath = null;
+    if(cordovaPlatforms[platform].subdirectory) {
+        platformPath = path.resolve(path.join('platforms', cordovaPlatforms[platform].subdirectory));
+    } else {
+        platformPath = path.resolve(path.join('platforms', platform));
+    }
+
     var parser = new cordovaPlatforms[platform].parser(platformPath);
 
     var files = walk(parser.www_dir(), ["js"])
